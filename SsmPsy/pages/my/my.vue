@@ -31,24 +31,24 @@
 				</view>
 			</view>
 		</view>
-		<view class="cu-list menu" :class="[menuBorder?'sm-border':'',menuCard?'card-menu margin-top':'']">
+		<view class="cu-list menu" :class="[menuBorder?'sm-border':'',menuCard?'card-menu margin-top':'']" >
 			<view class="cu-item" :class="menuArrow?'arrow':''">
 				<view class="content">
 					<text class="cuIcon-circlefill text-grey"></text>
-					<text class="text-grey">姓名</text>
+					<text class="text-grey">{{ my.username }}</text>
 				</view>
 			</view>
 			
 			<view class="cu-item" :class="menuArrow?'arrow':''">
 				<button class="cu-btn content" open-type="contact">
 					<text class="cuIcon-btn text-olive"></text>
-					<text class="text-grey">团队地址</text>
+					<text class="text-grey">{{ my.name }}</text>
 				</button>
 			</view>
 			<view class="cu-item" :class="menuArrow?'arrow':''">
 				<navigator class="content" hover-class="none"  open-type="redirect">
 					<text class="cuIcon-discoverfill text-orange"></text>
-					<text class="text-grey">联系方式</text>
+					<text class="text-grey">{{ my.phone }}</text>
 				</navigator>
 			</view>
 		
@@ -63,13 +63,33 @@
 			return {
 				modalName: null,
 				gridCol: 3,
+				my:{
+					
+				},
 				gridBorder: false,
 				menuBorder: false,
 				menuArrow: false,
 				menuCard: false,
 			}
 		},
+		onLoad(){
+			this.token()
+		},
 		methods: {
+			token(){
+				var token = localStorage.token
+				uni.request({
+					url: 'http://localhost:3001/auth/user',
+					method:"GET",
+					
+					header: {
+						'Authorization':"Bearer "+token
+					},
+					success: (res) => {
+						this.my = res.data
+					}
+			})
+			},
 			showModal(e) {
 				this.modalName = e.currentTarget.dataset.target
 			},

@@ -8,6 +8,7 @@
 </template>
 
 <script>
+
 	export default {
 		data() {
 			return {
@@ -15,13 +16,15 @@
 				daka:0,
 				//0是未打卡 1是打卡成功,3是未开放
 				hoursTip:' ',
+				my:{}
 			}
 		},
 		onLoad(){
-			
+				this.PsFetch()
 			　this.getMycount()
 		},
 		methods: {
+			
 			punch(){
 				if(this.daka == 0){
 						this.daka = 1
@@ -33,21 +36,31 @@
 					
 					}
 			},
-			postPunch(){
-				const _this = this
-				uni.request({
-					url:'http://localhost:3001/users',
-					method:'POST',
-					data: {
-						daka:_this.daka
-					},
-					header: {
-								'content-type':'application/json' //自定义请求头信息
-					},
-					success:(res)=>{
-							console.log('ok')
-					}
+			PsFetch(){
+				var token = localStorage.token
+					uni.request({
+						url: 'http://localhost:3001/auth/user',
+						method:"GET",
+						
+						header: {
+							'Authorization':"Bearer "+token
+						},
+						success: (res) => {
+							this.my = res.data
+							console.log(this.my.name)
+						}
 				})
+				},
+			postPunch(){
+					const _this = this
+					uni.request({
+						url:'http://localhost:3001/daka',
+						method:"POST",
+						data:{
+							daka:_this.daka,
+							name:_this.my.name
+						}
+					})
 				},
 			getMycount:function(){
 			　　let self=this;
