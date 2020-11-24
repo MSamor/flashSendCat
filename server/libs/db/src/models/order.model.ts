@@ -2,6 +2,10 @@ import { ApiProperty } from "@nestjs/swagger";
 import { prop } from "@typegoose/typegoose";
 
 export class Order {
+    @ApiProperty({ description:'货物id' })
+    @prop()
+    HwId:string
+
     @ApiProperty({ description:'_openid' })
     @prop()
     _openid:string

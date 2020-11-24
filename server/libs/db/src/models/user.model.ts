@@ -27,4 +27,5 @@ export class User {
     @ApiProperty({ description:'姓名' })
     @prop()
     name:string
+
 }

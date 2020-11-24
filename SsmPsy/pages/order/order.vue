@@ -137,6 +137,8 @@
 					})
 					},
 					alert(item){
+						const date=new Date();
+						
 						this.click++
 						var name = this.my.name
 						if(this.click %2 == 0){
@@ -176,6 +178,7 @@
 													openId: item.openId,
 													orderId: item.orderId,
 													phoneNum: item.phoneNum,
+													time:date.getDate(),
 													price: item.price,
 													productId: item.productId,
 													productName: item.productName,

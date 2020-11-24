@@ -2,6 +2,8 @@ import { ApiProperty } from "@nestjs/swagger";
 import { prop } from "@typegoose/typegoose";
 
 export class OrderByName {
+  
+
     @ApiProperty({ description:'配送员姓名' })
     @prop()
     PsName:string
@@ -52,7 +54,7 @@ export class OrderByName {
 
     @ApiProperty({ description:'时间' })
     @prop()
-    time:number
+    time:string
 
     @ApiProperty({ description:'状态码' })
     @prop()

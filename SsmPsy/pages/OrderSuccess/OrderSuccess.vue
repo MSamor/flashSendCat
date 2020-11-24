@@ -51,7 +51,6 @@
 		
 		<view class="order" v-else>
 				<view class="orderlist" v-for="(item , i) in order" :key="i">
-					<view class="" v-for="(itemn , i) in item.num" :key="i">
 				<view class="orderlisttop" style="font-weight: bold;">
 					<view class="orderlisttopleft">
 						{{ item.productName }}
@@ -76,7 +75,6 @@
 					备注：{{ item.desc }}
 					</view>
 		
-				</view>
 			</view>
 		</view>
 		
@@ -104,10 +102,13 @@
 		},
 		onLoad(){
 			this.getOrder()
+			this.data()
 		},
 			
 		methods: {
-					
+			data(){
+				console.log(date.getDate())
+			},		
 			searchAction(e){
 									const inputValue = e.target.value;
 									
@@ -140,15 +141,16 @@
 			},
 			
 			getOrder() {
+				const date=new Date();
 			for(var i=1 ; i<=40 ; i++){
 				uni.request({
-					url: `http://localhost:3001/order?query={"page":${i}}`,
+					url: `http://localhost:3001/ordername?query={"page":${i}}`,
 					method:"GET",
 					success: (res) => {
 						// this.order = res.data.data
 						// this.id.push({ data : res.data.data[i].orderId })
 						for (var i = 0; i < 10; i++) {
-							if(res.data.data[i].userName && res.data.data[i].state==300){
+							if(res.data.data[i].userName && res.data.data[i].time == date.getDate()){
 										this.order.push(res.data.data[i])
 									}
 								}

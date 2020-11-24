@@ -12,9 +12,10 @@ import { InjectModel } from 'nestjs-typegoose';
 @ApiTags('订单信息')
 export class OrderController {
     constructor (@InjectModel(Order) private readonly model:ReturnModelType<typeof Order>){}
-    @Put('/a')
+    @Post('a')
     async AddNewData(@Body() body){
-         const res = await this.model.update(body , { overwrite:true } )
+         const res = await this.model.update(body , { overwrite:true } , {upsert:true})
+         console.log(res)
          return res
     }
 }

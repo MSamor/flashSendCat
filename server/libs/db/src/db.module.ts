@@ -16,7 +16,7 @@ const models = TypegooseModule.forFeature([User,Order , Daka , OrderByName])
     ConfigModule.forRoot({
       isGlobal:true
     }),
-    TypegooseModule.forRoot('mongodb://localhost/ssmmmmm',{
+    TypegooseModule.forRoot('mongodb://localhost/ssmdiyiban',{
       useNewUrlParser:true,
       useUnifiedTopology:true,
       useCreateIndex:true,

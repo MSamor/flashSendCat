@@ -15,7 +15,7 @@
 					<view class="centerallicon">
 
 					</view>
-					<view class="centeralltext" @click="postSsm">
+					<view class="centeralltext">
 						未完成订单: {{ order2Length }}
 					</view>
 				</view>

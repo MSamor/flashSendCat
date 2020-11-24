@@ -585,10 +585,10 @@
     tslib "2.0.1"
     uuid "8.3.0"
 
-"@nestjs/jwt@^7.1.0":
-  version "7.1.0"
-  resolved "https://registry.npm.taobao.org/@nestjs/jwt/download/@nestjs/jwt-7.1.0.tgz#0ad6633399641cbba327e275827fcd935207930f"
-  integrity sha1-CtZjM5lkHLujJ+J1gn/Nk1IHkw8=
+"@nestjs/jwt@^7.2.0":
+  version "7.2.0"
+  resolved "https://registry.npm.taobao.org/@nestjs/jwt/download/@nestjs/jwt-7.2.0.tgz#d55d15c861b3e0d67a852cbe6131b14c85246852"
+  integrity sha1-1V0VyGGz4NZ6hSy+YTGxTIUkaFI=
   dependencies:
     "@types/jsonwebtoken" "8.5.0"
     jsonwebtoken "8.5.1"
@@ -4647,6 +4647,22 @@ jsonfile@^6.0.1:
 jsonwebtoken@8.5.1, jsonwebtoken@^8.2.0:
   version "8.5.1"
   resolved "https://registry.npm.taobao.org/jsonwebtoken/download/jsonwebtoken-8.5.1.tgz#00e71e0b8df54c2121a1f26137df2280673bcc0d"
+  integrity sha1-AOceC431TCEhofJhN98igGc7zA0=
+  dependencies:
+    jws "^3.2.2"
+    lodash.includes "^4.3.0"
+    lodash.isboolean "^3.0.3"
+    lodash.isinteger "^4.0.4"
+    lodash.isnumber "^3.0.3"
+    lodash.isplainobject "^4.0.6"
+    lodash.isstring "^4.0.1"
+    lodash.once "^4.0.0"
+    ms "^2.1.1"
+    semver "^5.6.0"
+
+jsonwebtoken@^8.5.1:
+  version "8.5.1"
+  resolved "https://registry.npm.taobao.org/jsonwebtoken/download/jsonwebtoken-8.5.1.tgz?cache=0&sync_timestamp=1586264928256&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fjsonwebtoken%2Fdownload%2Fjsonwebtoken-8.5.1.tgz#00e71e0b8df54c2121a1f26137df2280673bcc0d"
   integrity sha1-AOceC431TCEhofJhN98igGc7zA0=
   dependencies:
     jws "^3.2.2"
